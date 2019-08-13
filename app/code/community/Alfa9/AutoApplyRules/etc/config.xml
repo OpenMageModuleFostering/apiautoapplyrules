@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    Alfa9
+ * @package     Alfa9_AutoApplyRules
+ * @author     Alfa9 Servicios Web, S.L. <ctubio@alfa9.com>
+ */
+-->
+<config>
+	<modules>
+		<Alfa9_AutoApplyRules>
+		  <version>0.0.1</version>
+		  <depends>
+        <Mage_Adminhtml />
+        <Mage_Core />
+        <Mage_Catalog />
+		  </depends>
+		</Alfa9_AutoApplyRules>
+	</modules>
+  <global>
+    <models>
+      <catalog>
+        <rewrite>
+          <product_api>Alfa9_AutoApplyRules_Model_Catalog_Product_Api</product_api>
+          <product_api_v2>Alfa9_AutoApplyRules_Model_Catalog_Product_Api_V2</product_api_v2>
+        </rewrite>
+      </catalog>
+    </models>
+    <helpers>
+      <a9auto_apply_rules>
+        <class>Alfa9_AutoApplyRules_Helper</class>
+      </a9auto_apply_rules>
+    </helpers>
+  </global>
+  <adminhtml>
+    <acl>
+      <resources>
+        <admin>
+          <children>
+            <system>
+              <children>
+                <config>
+                  <children>
+                    <a9auto_apply_rules translate="label" module="a9auto_apply_rules">
+                      <title>Auto Apply Catalog Rules</title>
+                    </a9auto_apply_rules>
+                  </children>
+                </config>
+              </children>
+            </system>
+          </children>
+        </admin>
+      </resources>
+    </acl>
+  </adminhtml>
+  <default>
+    <a9auto_apply_rules>
+      <options>
+        <enabled>0</enabled>
+      </options>
+    </a9auto_apply_rules>
+  </default>
+</config>

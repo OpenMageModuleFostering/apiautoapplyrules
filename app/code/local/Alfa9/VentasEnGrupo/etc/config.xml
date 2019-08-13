@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    Alfa9
+ * @package     Alfa9_Serhs
+ * @author     Alfa9 Servicios Web, S.L. <ctubio@alfa9.com>
+ */
+-->
+<config>
+	<modules>
+		<Alfa9_VentasEnGrupo>
+		  <version>0.0.1</version>
+		</Alfa9_VentasEnGrupo>
+	</modules>
+  <crontab>
+    <jobs>
+      <alfa9_dailydeal_cron>
+        <schedule>
+          <cron_expr>0 0 1 * *</cron_expr>
+        </schedule>
+        <run>
+          <model>a9veg/dailydeal_task::run</model>
+        </run>
+      </alfa9_dailydeal_cron>      
+      <alfa9_aggregate_sales_report_order_partner_data>
+          <schedule>
+              <cron_expr>0 0 * * *</cron_expr> <!-- 0 0 * * * -->
+          </schedule>
+          <run>
+              <model>a9veg/observer_order_partner::aggregateSalesReportOrderPartnerData</model>
+          </run>
+      </alfa9_aggregate_sales_report_order_partner_data>
+    </jobs>
+  </crontab>
+  <global>
+    <blocks>
+      <a9veg>
+        <class>Alfa9_VentasEnGrupo_Block</class>
+      </a9veg>
+        <enhancedgrid>
+          <rewrite>
+            <catalog_product_grid>Alfa9_VentasEnGrupo_Block_Adminhtml_Catalog_Product_Grid</catalog_product_grid>
+          </rewrite>
+        </enhancedgrid>
+    </blocks>
+    <helpers>
+      <a9veg>
+        <class>Alfa9_VentasEnGrupo_Helper</class>
+      </a9veg>
+    </helpers>
+    <models>
+      <a9veg>
+        <class>Alfa9_VentasEnGrupo_Model</class>
+      </a9veg>
+    </models>
+		<events>
+			<sales_order_save_after>
+				<observers>
+					<alfa9_ventasengrupo_sales_order_save_after>
+						<type>singleton</type>
+						<class>Alfa9_VentasEnGrupo_Model_Observer_Order</class>
+						<method>salesOrderSaveAfter</method>
+					</alfa9_ventasengrupo_sales_order_save_after>
+				</observers>
+			</sales_order_save_after>
+			<catalog_product_is_salable_after>
+				<observers>
+					<alfa9_catalog_product_is_salable_after>
+						<type>singleton</type>
+						<class>Alfa9_VentasEnGrupo_Model_Observer_Product</class>
+						<method>catalogProductIsSalableAfter</method>
+					</alfa9_catalog_product_is_salable_after>
+				</observers>
+			</catalog_product_is_salable_after>
+		</events>
+		<template>
+			<email>
+				<a9_partner_email>
+					<label>Partner New Order Email</label>
+					<file>alfa9/partner_order_new.html</file>
+					<type>html</type>
+				</a9_partner_email>
+			</email>
+		</template>
+  </global>
+  <adminhtml>
+    <acl>
+      <resources>
+        <admin>
+          <children>
+            <system>
+              <children>
+                <config>
+                  <children>
+                    <a9veg translate="label" module="a9veg">
+                      <title>Ventas en Grupo</title>
+                    </a9veg>
+                  </children>
+                </config>
+              </children>
+            </system>
+          </children>
+        </admin>
+      </resources>
+    </acl>
+  </adminhtml>
+  <default>
+    <a9veg>
+      <new>
+        <mail>info@yocomprosano.es</mail>
+      </new>
+      <etc>
+        <freq></freq>
+        <start></start>
+        <end></end>
+        <delivery></delivery>
+      </etc>
+      <notify>
+        <active>0</active>
+        <status></status>
+        <email></email>
+      </notify>
+      <addr>
+        <firstname></firstname>
+        <lastname></lastname>
+        <company></company>
+        <street></street>
+        <city></city>
+        <region></region>
+        <postcode></postcode>
+        <country></country>
+        <telephone></telephone>
+        <fax></fax>
+      </addr>
+    </a9veg>
+  </default>
+</config>

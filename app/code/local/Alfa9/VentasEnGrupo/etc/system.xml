@@ -1,0 +1,230 @@
+<?xml version="1.0"?>
+<config><!-- http://w-hat.com/name2key?terse=1&name=%20Trullo%20Oh -->
+    <tabs>
+        <a9veg translate="label" module="a9veg">
+            <label>Ventas en Grupo</label>
+            <sort_order>150</sort_order>
+        </a9veg>
+    </tabs>
+    <sections>
+        <a9veg translate="label" module="a9veg">
+            <label>Preferencias</label>
+            <tab>a9veg</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>50</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <new translate="label">
+                    <label>Solicitud de Grupo de Consumo</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                      <mail translate="label">
+                          <label>Correo destinatario</label>
+                          <frontend_type>select</frontend_type>
+                          <source_model>adminhtml/system_config_source_email_identity</source_model>
+                          <sort_order>10</sort_order>
+                          <show_in_default>1</show_in_default>
+                          <show_in_website>0</show_in_website>
+                          <show_in_store>0</show_in_store>
+                      </mail>
+                    </fields>
+                </new>
+                <etc translate="label">
+                    <label>Ventana de Compra</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                      <freq translate="label comment">
+                        <label>Frecuencia</label>
+                        <frontend_type>select</frontend_type>
+                        <source_model>a9veg/adminhtml_system_config_source_date_freq</source_model>
+                        <sort_order>10</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                      </freq>
+                      <referencedate translate="label">
+                        <label>Fecha Referencia</label>
+                        <frontend_type>date</frontend_type>
+                        <frontend_model>a9veg/adminhtml_system_config_date</frontend_model>
+                        <depends><freq>a9_nonzero</freq></depends>
+                        <sort_order>20</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                      </referencedate>
+                      <start translate="label comment">
+                        <label>Dia Inicio</label>
+                        <frontend_type>select</frontend_type>
+                        <source_model>a9veg/adminhtml_system_config_source_date_days</source_model>
+                        <depends><freq>a9_nonzero</freq></depends>
+                        <sort_order>30</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                      </start>
+                      <end translate="label">
+                        <label>Dia Final</label>
+                        <frontend_type>select</frontend_type>
+                        <source_model>a9veg/adminhtml_system_config_source_date_days</source_model>
+                        <depends><freq>a9_nonzero</freq></depends>
+                        <sort_order>40</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                      </end>
+                      <delivery translate="label">
+                        <label>Dia Entrega</label>
+                        <frontend_type>select</frontend_type>
+                        <source_model>a9veg/adminhtml_system_config_source_date_days</source_model>
+                        <depends><freq>a9_nonzero</freq></depends>
+                        <sort_order>50</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                      </delivery>
+                    </fields>
+                </etc>
+                <notify translate="label">
+                    <label>Correos de Ventas para Productores</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                      <active translate="label">
+                        <label>Activar Notificaciones</label>
+                        <frontend_type>select</frontend_type>
+                        <source_model>adminhtml/system_config_source_yesno</source_model>
+                        <sort_order>10</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>0</show_in_website>
+                        <show_in_store>0</show_in_store>
+                      </active>
+                      <status translate="label">
+                        <label>Enviar cuando el Status sea</label>
+                        <frontend_type>select</frontend_type>
+                        <depends><active>1</active></depends>
+                        <source_model>adminhtml/system_config_source_order_status</source_model>
+                        <sort_order>20</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>0</show_in_website>
+                        <show_in_store>0</show_in_store>
+                      </status>
+                      <email translate="label">
+                        <label>Sobreescribir receptor (email)</label>
+                        <frontend_type>text</frontend_type>
+                        <depends><active>1</active></depends>
+                        <sort_order>30</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                      </email>
+                    </fields>
+                </notify>
+                <addr translate="label">
+                    <label>Direcci&amp;oacute;n de Env&amp;iacute;o</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                      <firstname translate="label">
+                        <label>Nombre</label>
+                        <frontend_type>text</frontend_type>
+                        <sort_order>10</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                      </firstname>
+                      <lastname translate="label">
+                        <label>Apellido</label>
+                        <frontend_type>text</frontend_type>
+                        <sort_order>20</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                      </lastname>
+                      <company translate="label">
+                        <label>Compa&amp;ntilde;ia</label>
+                        <frontend_type>text</frontend_type>
+                        <sort_order>30</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                      </company>
+                      <street translate="label">
+                        <label>Direcci&amp;oacute;n</label>
+                        <frontend_type>text</frontend_type>
+                        <sort_order>40</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                      </street>
+                      <city translate="label">
+                        <label>Ciudad</label>
+                        <frontend_type>text</frontend_type>
+                        <sort_order>50</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                      </city>
+                      <region translate="label">
+                        <label>Provincia</label>
+                        <frontend_type>select</frontend_type>
+                        <source_model>adminhtml/system_config_source_allregion</source_model>
+                        <sort_order>60</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                      </region>
+                      <postcode translate="label">
+                        <label>C&amp;oacute;digo Postal</label>
+                        <frontend_type>text</frontend_type>
+                        <sort_order>70</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                      </postcode>
+                      <country translate="label">
+                        <label>Pa&amp;iacute;s</label>
+                        <frontend_type>select</frontend_type>
+                        <source_model>adminhtml/system_config_source_country</source_model>
+                        <sort_order>80</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                      </country>
+                      <telephone translate="label">
+                        <label>Telefono</label>
+                        <frontend_type>text</frontend_type>
+                        <sort_order>90</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                      </telephone>
+                      <fax translate="label">
+                        <label>Fax</label>
+                        <frontend_type>text</frontend_type>
+                        <sort_order>100</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                      </fax>
+                    </fields>
+                </addr>
+            </groups>
+        </a9veg>
+    </sections>
+</config>

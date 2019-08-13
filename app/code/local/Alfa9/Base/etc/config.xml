@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    Alfa9
+ * @package     Alfa9_Base
+ * @author     Alfa9 Servicios Web, S.L. <ctubio@alfa9.com>
+ */
+-->
+<config>
+	<modules>
+		<Alfa9_Base>
+      <version>0.0.2</version>
+      <name>Alfa9 Support</name>
+      <depends>
+        <Mage_Core />
+      </depends>
+		</Alfa9_Base>
+	</modules>
+  <global>
+    <blocks>
+      <a9base>
+        <class>Alfa9_Base_Block</class>
+      </a9base>
+    </blocks>
+    <helpers>
+      <a9base>
+        <class>Alfa9_Base_Helper</class>
+      </a9base>
+    </helpers>
+    <models>
+      <a9base>
+        <class>Alfa9_Base_Model</class>
+      </a9base>
+    </models>
+  </global>
+  <stores>
+    <admin>
+      <design>
+        <package>
+          <name>default</name>
+        </package>
+        <theme>
+          <default>alfa9</default>
+        </theme>
+      </design>
+    </admin>
+  </stores>
+  <adminhtml>
+    <layout>
+      <updates>
+        <a9base module="a9base">
+          <file>a9base.xml</file>
+        </a9base>
+      </updates>
+    </layout>
+    <acl>
+      <resources>
+        <all>
+          <title>Allow Everything</title>
+        </all>
+        <admin>
+          <children>
+            <system>
+              <children>
+                <config>
+                  <children>
+                    <a9extensions>
+                      <title>Alfa9 Extensions Support</title>
+                    </a9extensions>
+                    <a9store>
+                      <title>Alfa9 Extensions Store</title>
+                    </a9store>
+                  </children>
+                </config>
+              </children>
+            </system>
+          </children>
+        </admin>
+      </resources>
+    </acl>    
+    <events>
+      <controller_action_predispatch>
+        <observers>
+          <a9base_modules_rss_check>
+            <type>singleton</type>
+            <class>a9base/rss_modules</class>
+            <method>saveRss</method>
+          </a9base_modules_rss_check>
+        </observers>
+      </controller_action_predispatch>
+    </events>
+  </adminhtml>
+  <default>
+    <a9base>
+      <rss_modules>
+        <delay>86400</delay>
+      </rss_modules>
+    </a9base>
+  </default>
+</config>

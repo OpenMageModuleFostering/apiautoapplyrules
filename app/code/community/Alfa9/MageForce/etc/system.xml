@@ -1,0 +1,330 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <a9mageforce translate="label" module="a9mageforce">
+            <label>SalesForce Connector</label>
+            <tab>a9base</tab>
+            <class>a9connector-section</class>
+            <sort_order>10050</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <login translate="label">
+                    <label>SalesForce Authentication</label>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                      <username translate="label">
+                          <label>Username</label>
+                          <frontend_type>text</frontend_type>
+                          <sort_order>10</sort_order>
+                          <show_in_default>1</show_in_default>
+                          <show_in_website>1</show_in_website>
+                          <show_in_store>1</show_in_store>
+                      </username>
+                      <password translate="label">
+                          <label>Password</label>
+                          <frontend_type>password</frontend_type>
+                          <sort_order>20</sort_order>
+                          <show_in_default>1</show_in_default>
+                          <show_in_website>1</show_in_website>
+                          <show_in_store>1</show_in_store>
+                      </password>
+                      <token translate="label">
+                          <label>Security Token</label>
+                          <frontend_type>password</frontend_type>
+                          <sort_order>30</sort_order>
+                          <show_in_default>1</show_in_default>
+                          <show_in_website>1</show_in_website>
+                          <show_in_store>1</show_in_store>
+                      </token>
+                    </fields>
+                </login>
+                <wsdl translate="label">
+                  <label>WSDL Files</label>
+                  <sort_order>20</sort_order>
+                  <show_in_default>1</show_in_default>
+                  <show_in_website>1</show_in_website>
+                  <show_in_store>1</show_in_store>
+                  <fields>
+                    <enterprise translate="label">
+                      <label>SalesForce Enterprise<?php echo 33; ?> WSDL</label>
+                      <comment>Allowed file types: XML, WSDL.&lt;br /&gt;(Not all browsers support these formats!)</comment>
+                      <backend_model>a9mageforce/adminhtml_system_config_backend_xml</backend_model>
+                      <frontend_type>file</frontend_type>
+                      <sort_order>10</sort_order>
+                      <show_in_default>1</show_in_default>
+                      <show_in_website>1</show_in_website>
+                      <show_in_store>1</show_in_store>
+                    </enterprise>
+                    <metadata translate="label">
+                      <label>SalesForce Metadata WSDL</label>
+                      <comment>Allowed file types: XML, WSDL.&lt;br /&gt;(Not all browsers support these formats!)</comment>
+                      <backend_model>a9mageforce/adminhtml_system_config_backend_xml</backend_model>
+                      <frontend_type>file</frontend_type>
+                      <sort_order>20</sort_order>
+                      <show_in_default>1</show_in_default>
+                      <show_in_website>1</show_in_website>
+                      <show_in_store>1</show_in_store>
+                    </metadata>
+                  </fields>
+                </wsdl>
+                <debug translate="label">
+                  <label>WS Debug Log</label>
+                  <sort_order>30</sort_order>
+                  <show_in_default>1</show_in_default>
+                  <show_in_website>1</show_in_website>
+                  <show_in_store>1</show_in_store>
+                  <fields>
+                    <file_enabled translate="label">
+                        <label>Enabled debug log to local file</label>
+                        <comment>Output will go to /var/log/salesforce.log file.</comment>
+                        <frontend_type>select</frontend_type>
+                        <source_model>adminhtml/system_config_source_yesno</source_model>
+                        <sort_order>10</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                    </file_enabled>
+                    <mail_enabled translate="label">
+                        <label>Enabled error log to email</label>
+                        <frontend_type>select</frontend_type>
+                        <source_model>adminhtml/system_config_source_yesno</source_model>
+                        <sort_order>20</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                    </mail_enabled>
+                    <mail_from translate="label">
+                        <label>Debug Email FROM</label>
+                        <frontend_type>text</frontend_type>
+                        <validate>validate-email</validate>
+                        <depends><mail_enabled>1</mail_enabled></depends>
+                        <sort_order>30</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                    </mail_from>
+                    <mail_to translate="label">
+                        <label>Debug Email TO</label>
+                        <frontend_type>text</frontend_type>
+                        <validate>validate-email</validate>
+                        <depends><mail_enabled>1</mail_enabled></depends>
+                        <sort_order>40</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                    </mail_to>
+                  </fields>
+                </debug>
+                <map_product translate="label">
+                    <label>Field Mapping - Product</label>
+                    <sort_order>40</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                      <enabled translate="label">
+                          <label>Synchronization Enabled</label>
+                          <comment>Enable synchronization for Products.</comment>
+                          <frontend_type>select</frontend_type>
+                          <source_model>adminhtml/system_config_source_yesno</source_model>
+                          <sort_order>10</sort_order>
+                          <show_in_default>1</show_in_default>
+                          <show_in_website>1</show_in_website>
+                          <show_in_store>1</show_in_store>
+                      </enabled>
+                      <magento_entity translate="label">
+                          <label>Magento Object</label>
+                          <comment>Identifier name of the Model in Magento.</comment>
+                          <frontend_type>text</frontend_type>
+                          <sort_order>20</sort_order>
+                          <validate>required-entry</validate>
+                          <show_in_default>1</show_in_default>
+                          <show_in_website>1</show_in_website>
+                          <show_in_store>1</show_in_store>
+                      </magento_entity>
+                      <salesforce_entity translate="label">
+                          <label>SalesForce Object</label>
+                          <comment>Identifier name of the API entity in SalesForce.</comment>
+                          <frontend_type>text</frontend_type>
+                          <sort_order>30</sort_order>
+                          <validate>required-entry validate-data</validate>
+                          <show_in_default>1</show_in_default>
+                          <show_in_website>1</show_in_website>
+                          <show_in_store>1</show_in_store>
+                      </salesforce_entity>
+                      <ua_attr translate="comment">
+                          <label>Map Fields</label>
+                          <frontend_model>a9mageforce/map_field_attributes</frontend_model>
+                          <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                          <sort_order>40</sort_order>
+                          <show_in_default>1</show_in_default>
+                          <show_in_website>1</show_in_website>
+                          <show_in_store>1</show_in_store>
+                          <comment>Match Magento attributes against SalesForce fields.</comment>
+                        </ua_attr>
+                    </fields>
+                </map_product>
+                <map_customer translate="label">
+                    <label>Field Mapping - Customer</label>
+                    <sort_order>50</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                      <enabled translate="label">
+                          <label>Synchronization Enabled</label>
+                          <comment>Enable synchronization for Customers.</comment>
+                          <frontend_type>select</frontend_type>
+                          <source_model>adminhtml/system_config_source_yesno</source_model>
+                          <sort_order>10</sort_order>
+                          <show_in_default>1</show_in_default>
+                          <show_in_website>1</show_in_website>
+                          <show_in_store>1</show_in_store>
+                      </enabled>
+                      <magento_entity translate="label">
+                          <label>Magento Object</label>
+                          <comment>Identifier name of the Model in Magento.</comment>
+                          <frontend_type>text</frontend_type>
+                          <sort_order>20</sort_order>
+                          <validate>required-entry</validate>
+                          <show_in_default>1</show_in_default>
+                          <show_in_website>1</show_in_website>
+                          <show_in_store>1</show_in_store>
+                      </magento_entity>
+                      <salesforce_entity translate="label">
+                          <label>SalesForce Object</label>
+                          <comment>Identifier name of the API entity in SalesForce.</comment>
+                          <frontend_type>text</frontend_type>
+                          <sort_order>30</sort_order>
+                          <validate>required-entry validate-data</validate>
+                          <show_in_default>1</show_in_default>
+                          <show_in_website>1</show_in_website>
+                          <show_in_store>1</show_in_store>
+                      </salesforce_entity>
+                      <ua_attr translate="comment">
+                          <label>Map Fields</label>
+                          <frontend_model>a9mageforce/map_field_attributes</frontend_model>
+                          <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                          <sort_order>40</sort_order>
+                          <show_in_default>1</show_in_default>
+                          <show_in_website>1</show_in_website>
+                          <show_in_store>1</show_in_store>
+                          <comment>Match Magento attributes against SalesForce fields.</comment>
+                      </ua_attr>
+                    </fields>
+                </map_customer>
+                <map_quote translate="label">
+                    <label>Field Mapping - Quote</label>
+                    <sort_order>60</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                      <enabled translate="label">
+                          <label>Synchronization Enabled</label>
+                          <comment>Enable synchronization for Quotes.</comment>
+                          <frontend_type>select</frontend_type>
+                          <source_model>adminhtml/system_config_source_yesno</source_model>
+                          <sort_order>10</sort_order>
+                          <show_in_default>1</show_in_default>
+                          <show_in_website>1</show_in_website>
+                          <show_in_store>1</show_in_store>
+                      </enabled>
+                      <magento_entity translate="label">
+                          <label>Magento Object</label>
+                          <comment>Identifier name of the Model in Magento.</comment>
+                          <frontend_type>text</frontend_type>
+                          <sort_order>20</sort_order>
+                          <validate>required-entry</validate>
+                          <show_in_default>1</show_in_default>
+                          <show_in_website>1</show_in_website>
+                          <show_in_store>1</show_in_store>
+                      </magento_entity>
+                      <salesforce_entity translate="label">
+                          <label>SalesForce Object</label>
+                          <comment>Identifier name of the API entity in SalesForce.</comment>
+                          <frontend_type>text</frontend_type>
+                          <sort_order>30</sort_order>
+                          <validate>required-entry validate-data</validate>
+                          <show_in_default>1</show_in_default>
+                          <show_in_website>1</show_in_website>
+                          <show_in_store>1</show_in_store>
+                      </salesforce_entity>
+                      <ua_attr translate="comment">
+                          <label>Map Fields</label>
+                          <frontend_model>a9mageforce/map_field_attributes</frontend_model>
+                          <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                          <sort_order>40</sort_order>
+                          <show_in_default>1</show_in_default>
+                          <show_in_website>1</show_in_website>
+                          <show_in_store>1</show_in_store>
+                          <comment>Match Magento attributes against SalesForce fields.</comment>
+                      </ua_attr>
+                    </fields>
+                </map_quote>
+                <map_order translate="label">
+                    <label>Field Mapping - Order</label>
+                    <sort_order>70</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                      <enabled translate="label">
+                          <label>Synchronization Enabled</label>
+                          <comment>Enable synchronization for Orders.</comment>
+                          <frontend_type>select</frontend_type>
+                          <source_model>adminhtml/system_config_source_yesno</source_model>
+                          <sort_order>10</sort_order>
+                          <show_in_default>1</show_in_default>
+                          <show_in_website>1</show_in_website>
+                          <show_in_store>1</show_in_store>
+                      </enabled>
+                      <magento_entity translate="label">
+                          <label>Magento Object</label>
+                          <comment>Identifier name of the Model in Magento.</comment>
+                          <frontend_type>text</frontend_type>
+                          <sort_order>20</sort_order>
+                          <validate>required-entry</validate>
+                          <show_in_default>1</show_in_default>
+                          <show_in_website>1</show_in_website>
+                          <show_in_store>1</show_in_store>
+                      </magento_entity>
+                      <salesforce_entity translate="label">
+                          <label>SalesForce Object</label>
+                          <comment>Identifier name of the API entity in SalesForce.</comment>
+                          <frontend_type>text</frontend_type>
+                          <sort_order>30</sort_order>
+                          <validate>required-entry validate-data</validate>
+                          <show_in_default>1</show_in_default>
+                          <show_in_website>1</show_in_website>
+                          <show_in_store>1</show_in_store>
+                      </salesforce_entity>
+                      <ua_attr translate="comment">
+                          <label>Map Fields</label>
+                          <frontend_model>a9mageforce/map_field_attributes</frontend_model>
+                          <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                          <sort_order>40</sort_order>
+                          <show_in_default>1</show_in_default>
+                          <show_in_website>1</show_in_website>
+                          <show_in_store>1</show_in_store>
+                          <comment>Match Magento attributes against SalesForce fields.</comment>
+                      </ua_attr>
+                    </fields>
+                </map_order>
+                <help translate="label">
+                    <label>Help Document</label>
+                    <frontend_model>a9mageforce/map_field_help</frontend_model>
+                    <sort_order>80</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                </help>
+            </groups>
+        </a9mageforce>
+    </sections>
+</config>

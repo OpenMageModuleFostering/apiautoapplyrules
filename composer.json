@@ -1,0 +1,17 @@
+{
+    "name": "OpenMageModuleFostering/ApiAutoApplyRules",
+    "type": "magento-module",
+    "license": "GPL",
+    "homepage": "",
+    "description": "In earlier Versions,  when you update products of
+Magento using the API, the catalog rules become unapplied.",
+    "authors": [
+    {
+        "name": "Alfa9 Servicios Web, S.L.",
+        "email": "ibermejo@alfa9.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

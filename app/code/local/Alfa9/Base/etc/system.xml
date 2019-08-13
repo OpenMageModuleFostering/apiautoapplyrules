@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    Alfa9
+ * @package     Alfa9_Base
+ * @author     Alfa9 Servicios Web, S.L. <ctubio@alfa9.com>
+ */
+-->
+<config>
+    <tabs>
+        <a9base translate="label" module="a9base">
+            <label>Alfa9 Servicios Web SL</label>
+            <sort_order>101</sort_order>
+        </a9base>
+    </tabs>
+    <sections>
+      <a9extensions translate="label" module="a9base">
+        <label>Alfa9 Extensions Support</label>
+        <tab>a9base</tab>
+        <class>a9extensions-section</class>
+        <frontend_type>text</frontend_type>
+        <sort_order>100</sort_order>
+        <show_in_default>1</show_in_default>
+        <show_in_website>1</show_in_website>
+        <show_in_store>1</show_in_store>
+        <groups>
+          <installed translate="label">
+            <label>Installed Alfa9 Extensions</label>
+            <frontend_type>text</frontend_type>
+            <frontend_model>a9base/system_config_form_fieldset_a9base_installed</frontend_model>
+            <sort_order>100</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+          </installed>          
+          <news>
+            <label>Alfa9 Extensions Notifications</label>
+            <frontend_type>text</frontend_type>
+            <sort_order>200</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <fields>
+              <!--enabled translate="label">
+                <label>Enable </label>
+                <comment>Will check for aheadWorks extensions updates</comment>
+                <frontend_type>select</frontend_type>
+                <sort_order>90</sort_order>
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>1</show_in_store>
+                <source_model>adminhtml/system_config_source_yesno</source_model>
+              </enabled>
+              <interests translate="label">
+                <label>I'd like to be informed by aheadWorks about:</label>
+                <comment></comment>
+                <frontend_type>multiselect</frontend_type>
+                <sort_order>100</sort_order>
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>1</show_in_store>
+                <can_be_empty>1</can_be_empty>
+                <source_model>awall/source_updates_type</source_model>
+              </interests-->
+            </fields>
+          </news>
+        </groups>
+      </a9extensions>
+      <a9store>
+        <label>Alfa9 Extensions Store</label>
+        <tab>a9base</tab>
+        <class>a9store-section</class>
+        <frontend_type>text</frontend_type>
+        <sort_order>9999</sort_order>
+        <show_in_default>1</show_in_default>
+        <show_in_website>1</show_in_website>
+        <show_in_store>1</show_in_store>
+        <groups>
+          <extensions translate="label">
+            <label>Alfa9 Extensions Store</label>
+            <frontend_type>text</frontend_type>
+            <frontend_model>a9base/system_config_form_fieldset_a9base_extensions</frontend_model>
+            <sort_order>2</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+          </extensions>
+        </groups>
+      </a9store>
+    </sections>
+</config>
